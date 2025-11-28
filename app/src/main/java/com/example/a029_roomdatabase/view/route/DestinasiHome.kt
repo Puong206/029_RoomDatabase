@@ -1,4 +1,8 @@
 package com.example.a029_roomdatabase.view.route
 
-object DestinasiHome {
+import com.example.a029_roomdatabase.R
+
+object DestinasiHome : DestinasiNavigasi {
+    override val route = "home"
+    override val titleRes = R.string.app_name
 }
