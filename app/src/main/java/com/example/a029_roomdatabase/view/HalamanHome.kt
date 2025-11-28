@@ -106,7 +106,8 @@ fun BodyHome(
 
 @Composable
 fun ListSiswa(
-    itemSiswa: List<Siswa>
+    itemSiswa: List<Siswa>,
+    modifier: Modifier = Modifier
 ) {
     LazyColumn(modifier = Modifier) {
             items(items = itemSiswa, key = { it.id }) { person ->
