@@ -53,7 +53,7 @@ fun HomeScreen(
             SiswaTopAppBar(
                 title = stringResource(DestinasiHome.titleRes),
                 canNavigateBack = false,
-                scrollBehavior = scrollBehavior)
+                scrollBehavior = scrollBehavior
             )
         },
         floatingActionButton = {
