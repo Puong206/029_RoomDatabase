@@ -24,7 +24,6 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.key
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
@@ -107,12 +106,11 @@ fun BodyHome(
 
 @Composable
 fun ListSiswa(
-    itemSiswa: List<Siswa>,
-    modifier: Modifier
+    itemSiswa: List<Siswa>
 ) {
     LazyColumn(modifier = Modifier) {
-        items(items = itemSiswa, key = {it=id}) {
-            person -> DataSiswa(
+            items(items = itemSiswa, key = { it.id }) { person ->
+                DataSiswa(
                 siswa = person,
                 modifier = Modifier.padding(dimensionResource(R.dimen.padding_large))
             )
