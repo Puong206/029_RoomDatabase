@@ -1,5 +1,7 @@
 package com.example.a029_roomdatabase.view
 
+import android.adservices.adid.AdId
+import androidx.annotation.StringRes
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
@@ -21,6 +23,15 @@ fun DetailSiswaScreen(
     viewModel: DetailViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ) {
 
+}
+
+@Composable
+private fun BarisDetailData(
+    @StringRes labelResId: Int,
+    itemDetail: String,
+    modifier: Modifier = Modifier
+) {
+    
 }
 
 @Composable
