@@ -2,6 +2,8 @@ package com.example.a029_roomdatabase.view
 
 import android.adservices.adid.AdId
 import androidx.annotation.StringRes
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
@@ -9,6 +11,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.a029_roomdatabase.R
 import com.example.a029_roomdatabase.viewmodel.DetailViewModel
@@ -17,13 +20,14 @@ import com.example.a029_roomdatabase.viewmodel.provider.PenyediaViewModel
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailSiswaScreen(
-    navigateToEditItem: (Int) -> Unit,
+    //navigateToEditItem: (Int) -> Unit,
     navigateBack: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: DetailViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ) {
-
 }
+
+
 
 @Composable
 private fun BarisDetailData(
@@ -31,7 +35,11 @@ private fun BarisDetailData(
     itemDetail: String,
     modifier: Modifier = Modifier
 ) {
-    
+    Row(modifier = modifier) {
+        Text(text = stringResource(labelResId))
+        Spacer(modifier = Modifier.weight(1f))
+        Text(text = itemDetail, fontWeight = FontWeight.Bold)
+    }
 }
 
 @Composable
