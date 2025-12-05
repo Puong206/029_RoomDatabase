@@ -42,7 +42,7 @@ import com.example.a029_roomdatabase.view.route.DestinasiHome
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
-    onSiswaClick: (Siswa) -> Unit,
+    navigateToItemUpdate: (Int) -> Unit,
     navigateToItemEntry: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = viewModel ( factory = PenyediaViewModel.Factory )
@@ -75,7 +75,7 @@ fun HomeScreen(
         val uiStateSiswa by viewModel.homeUiState.collectAsState()
         BodyHome(
             itemSiswa = uiStateSiswa.listSiswa,
-            onSiswaClick = onSiswaClick,
+            onSiswaClick = navigateToItemUpdate,
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize()
@@ -85,7 +85,7 @@ fun HomeScreen(
 
 @Composable
 fun BodyHome(
-    onSiswaClick: (Siswa) -> Unit,
+    onSiswaClick: (Int) -> Unit,
     itemSiswa: List<Siswa>,
     modifier: Modifier = Modifier
 ){
@@ -102,7 +102,7 @@ fun BodyHome(
         } else {
             ListSiswa(
                 itemSiswa = itemSiswa,
-                onSiswaClick = onSiswaClick,
+                onSiswaClick = { onSiswaClick(it.id) },
                 modifier = Modifier
                     .padding(horizontal = dimensionResource(R.dimen.padding_small))
             )
@@ -122,7 +122,7 @@ fun ListSiswa(
                 siswa = person,
                 modifier = Modifier
                     .padding(dimensionResource(R.dimen.padding_large))
-                    .clickable {onSiswaClick(person)}
+                    .clickable { onSiswaClick(person) }
             )
         }
     }
