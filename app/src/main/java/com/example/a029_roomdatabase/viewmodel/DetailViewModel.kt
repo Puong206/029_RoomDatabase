@@ -4,6 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.a029_roomdatabase.repositori.RepositoriSiswa
+import com.example.a029_roomdatabase.view.route.DestinasiDetailSiswa
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.filterNotNull
@@ -34,4 +35,8 @@ class DetailViewModel(
     companion object {
         private const val TIMEOUT_MILLIS = 5_000L
     }
+
+    data class DetailSiswaUiState(
+        val detailSiswa: DetailSiswa = DetailSiswa()
+    )
 }
