@@ -17,3 +17,12 @@ fun DetailSiswaScreen(
 ) {
 
 }
+
+@Composable
+private fun DeleteConfirmationDialog(
+    onDeleteConfirm: () -> Unit,
+    onDeleteCancel: () -> Unit,
+    modifier: Modifier = Modifier
+){
+
+}
