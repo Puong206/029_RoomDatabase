@@ -13,9 +13,9 @@ import com.example.a029_roomdatabase.view.EntrySiswaScreen
 import com.example.a029_roomdatabase.view.HomeScreen
 import com.example.a029_roomdatabase.view.route.DestinasiDetailSiswa
 import com.example.a029_roomdatabase.view.route.DestinasiDetailSiswa.itemIdArg
+import com.example.a029_roomdatabase.view.route.DestinasiEditSiswa
 import com.example.a029_roomdatabase.view.route.DestinasiEntry
 import com.example.a029_roomdatabase.view.route.DestinasiHome
-import com.example.a029_roomdatabase.viewmodel.DetailSiswa
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -35,8 +35,8 @@ fun HostNavigasi(
     ) {
         composable(DestinasiHome.route) {
             HomeScreen(
-                navigateToItemUpdate = { navController.navigate("${DestinasiDetailSiswa.route}/$it")},
                 navigateToItemEntry = { navController.navigate(DestinasiEntry.route) },
+                navigateToItemUpdate = { navController.navigate("${DestinasiDetailSiswa.route}/$it")}
             )
         }
         composable(DestinasiEntry.route) {
@@ -49,8 +49,16 @@ fun HostNavigasi(
             })
         ){
             DetailSiswaScreen(
-                //navigateToEditItem = {navController.navigate("${DestinasiEditSsiswa.route}/$it")},
+                navigateToEditItem = {navController.navigate("${DestinasiEditSiswa.route}/$it")},
                 navigateBack = { navController.navigateUp() })
+        }
+        composable(route = DestinasiEditSiswa.routeWithArgs,
+            arguments = listOf(navArgument(DestinasiEditSiswa.itemIdArg){
+                type = NavType.IntType })) {
+            EditSiswaScreen(
+                navigateBack = { navController.popBackStack() },
+                onNavigateUp = { navController.navigateUp() }
+            )
         }
     }
 }
